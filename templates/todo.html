@@ -1,0 +1,36 @@
+{% extends 'index.html' %}
+{% block titel %}
+todo
+{% endblock titel %}
+{% block body %}
+{% for message in get_flashed_messages() %}
+  
+  <div class="alert alert-secondary" role="alert">
+    {{ message }}
+  </div>
+  {% endfor %}
+
+<div class="container-xxl my-3">
+  <div class="mb-3">
+    <form action="/todo" method="post">
+      <div class="mb-3">
+
+        <label for="Titel" class="form-label">Add Task</label>
+        <input type="text" class="form-control" name='title' id="Titel">
+      </div>
+      <div class="mb-3">
+        <label for="desc" class="form-label">Description</label>
+        <input type="text" class="form-control" name="desc" id="desc">
+      </div>
+      <button type="submit" class="btn btn-dark">Submit</button>
+      <!-- <a href="/show" button type="submit" class="btn btn-dark float-right">Show Your TODO</button> -->
+    </form>
+  </div>
+  <!-- <div class="align-right"> -->
+  <!-- </div> -->
+  
+
+
+
+
+  {% endblock body %}

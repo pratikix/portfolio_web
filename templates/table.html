@@ -1,0 +1,67 @@
+{% extends 'index.html' %}
+{% block titel %}
+Todos
+{% endblock titel %}
+{% block table %}
+<div class="container my-3">
+
+    {% if alltodo|length == 0 %}
+    <div class="alert alert-secondary" role="alert">
+        
+        NO RECORDS
+      </div>
+
+
+    {% else %}
+
+
+
+
+
+    {% for message in get_flashed_messages() %}
+  
+  <div class="alert alert-secondary" role="alert">
+    {{ message }}
+  </div>
+  {% endfor %}
+
+
+
+
+
+
+    <h3>Your Task's</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Sr no.</th>
+                <th scope="col">Titel</th>
+                <th scope="col">Description</th>
+                <th scope="col">Time</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for todo in alltodo %}
+            <tr>
+                <th scope="row">{{loop.index}}</th>
+                <td>{{todo.title}}</td>
+                <td>{{todo.desc}}</td>
+                <td>{{todo.date_created}}</td>
+                <td><a href="/delete/{{todo.sno}}" type="button"
+                        class="btn button secondary-button text-uppercase">Delete</button>
+                        <a href="/update/{{todo.sno}}" type="button"
+                            class="btn button secondary-button text-uppercase">Update</button>
+                </td>
+
+            </tr>
+
+            {% endfor %}
+            {% endif %}
+
+
+        </tbody>
+    </table>
+</div>
+
+{% endblock table %}

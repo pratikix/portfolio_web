@@ -1,0 +1,30 @@
+{% extends 'index.html' %}
+{% block titel %}
+      update
+  {% endblock titel %}
+{% block body %}
+  
+  <div class="container-xxl my-3">
+    <div class="mb-3">
+      <form action="/update/{{todo.sno}}" method="post">
+        <div class="mb-3">
+
+          <label for="Titel" class="form-label">Update Task</label>
+          <input type="text" class="form-control" name='title' value="{{todo.title}}" id="Titel">
+        </div>
+        <div class="mb-3">
+          <label for="desc" class="form-label">Description</label>
+          <input type="text" class="form-control" name="desc" value="{{todo.desc}}" id="desc">
+        </div>
+        <button type="submit" class="btn btn-dark">Submit</button>
+      </form>
+    </div>
+    
+      
+
+
+        </tbody>
+      </table>
+    </div>
+
+    {% endblock body %}
